@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DB_EXISTS=$(mysql -u root -e "SHOW DATABASES LIKE 'CMS_4003';" | grep CMS_4003)
+DB_EXISTS=$(mysql -u root -e "SHOW DATABASES LIKE 'CMSC_4003';" | grep CMS_4003)
 
 if [ -z "$DB_EXISTS" ]; then
   echo "Database not found. Creating..."
