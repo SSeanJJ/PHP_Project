@@ -15,7 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Login</title></head>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
 <body>
 <h2>Login</h2>
 <form method="post">
@@ -27,5 +30,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <p style="color:red"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
 <p>Don't have an account? <a href="register.php">Register</a></p>
-</body>
-</html>
+<?php require_once __DIR__ . '/../templates/footer.php'; ?>

@@ -10,12 +10,9 @@ if (!isLoggedIn()) {
 require_once __DIR__ . '/../templates/header.php';
 ?>
 
-<h1>Welcome, <?= htmlspecialchars($_SESSION['user']['name']?? 'Username not found') ?>!</h1>
+<h1> The page you're requesting is restricted (<?= htmlspecialchars($_SESSION['user']['user_type']?? '') ?>s) are not allowed!</h1>
 <p>You are logged in.</p>
 <a href="logout.php">Log out</a>
-<a href="changepw.php">Change Password</a>
-<?php if($_SESSION['user']['user_type'] === 'admin'):?>
-<a href="register.php">Register User</a>
-<?php endif; ?>
+<a href="index.php">Home</a>
 
 <?php require_once __DIR__ . '/../templates/footer.php'; ?>

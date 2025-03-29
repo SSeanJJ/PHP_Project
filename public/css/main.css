@@ -1,3 +1,43 @@
-.container {
+:root {
+  font-family: "Open Sans";
+  justify-content: center;
+}
+h1,
+h2 {
+  display: flex;
+  justify-content: center;
+}
+body,
+form,
+p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  text-decoration: none;
+  border: 1px solid grey;
+  padding: 8px;
+  margin: 4px;
+  height: 24px;
+  width: 70px;
+  border-radius: 8px;
+}
+a:visited {
+  color: unset;
+}
+a:hover {
+  color: grey;
+  border-color: cyan;
+  outline: 1px solid grey;
+}
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  background: rgb(230, 230, 230);
 }

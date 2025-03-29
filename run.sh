@@ -10,5 +10,6 @@ if [ -z "$DB_EXISTS" ]; then
 else
   echo "Database already exists."
 fi
+mysql -u root < sql/seed.sql
 
 php -S localhost:8000 -t public
