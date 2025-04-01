@@ -29,5 +29,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if ($error): ?>
 <p style="color:red"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
-<p>Don't have an account? <a href="register.php">Register</a></p>
+<p>Don't have an account? <a href="/register.php">Register</a></p>
 <?php require_once __DIR__ . '/../templates/footer.php'; ?>

@@ -2,22 +2,36 @@
 require_once 'db.php';
 
 function login($email, $password) {
-    $stmt = getDb()->prepare("SELECT * FROM users WHERE email = ?");
+    $pdo = getDb();
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password_hash'])) {
+        $sessionId = generate_uuid_v4();
+
         $_SESSION['user'] = [
-            'session_id' => $user['session_id']= generate_uuid_v4(),
+            'session_id' => $sessionId,
             'id' => $user['id'],
             'name' => $user['first_name'],
             'user_type' => $user['user_type'],
             'email' => $user['email']
         ];
+
+        try {
+            $insert = $pdo->prepare("INSERT INTO sessions (user_id, session_id) VALUES (?, ?)");
+            $insert->execute([$user['id'], $sessionId]);
+            error_log("✅ Session inserted for user ID {$user['id']}");
+        } catch (PDOException $e) {
+            error_log("❌ Session insert failed: " . $e->getMessage());
+        }
+
         return true;
     }
+
     return false;
 }
+
 
 function isLoggedIn() {
     return isset($_SESSION['user']);
