@@ -30,7 +30,7 @@ Login:**
 - Logout: A user can logout the system after having logged into it.  When a user is logged out, the respective session of the login of the user should be removed from the system.  
 - Web page access: Make sure that a regular user can access only regular user pages while an admin user access only admin user pages.  A hybrid user may access both types of web pages.
 - Changing password: A user (admin or student) can change his/her password after login.
-Managing users: An admin user can list all users or search for any users in the system.  An admin user can add new users, delete users, and update any information pieces of an existing user except the username (primary key).
+ Managing users: An admin user can list all users or search for any users in the system.  An admin user can add new users, delete users, and update any information pieces of an existing user except the username (primary key).
 
 **General Requirements**
 You should complete the following tasks for Part One of the project:
